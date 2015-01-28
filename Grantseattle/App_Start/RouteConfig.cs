@@ -12,6 +12,34 @@ namespace InventoryERP
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            #region Blog
+            routes.MapRoute(
+                          name: "BlogList",
+                          url: "Blog-List",
+                          defaults: new { controller = "Blog", action = "Index" }
+                      );
+            routes.MapRoute(
+                          name: "CreateBlog",
+                          url: "Blog-Create",
+                          defaults: new { controller = "Blog", action = "Create" }
+                      );
+            routes.MapRoute(
+                          name: "DetailsBlog",
+                          url: "blog-Detail",
+                          defaults: new { controller = "Blog", action = "Details" }
+                      );
+            routes.MapRoute(
+                          name: "BlogEdit",
+                          url: "Blog-Edit",
+                          defaults: new { controller = "Blog", action = "Edit" }
+                      );
+            routes.MapRoute(
+                        name: "BlogDelete",
+                        url: "Blog-Delete",
+                        defaults: new { controller = "Blog", action = "Delete" }
+                    );
+            #endregion
+
             #region Route for PropertyListing Controller
             routes.MapRoute(
                           name: "MakePropertyPurpose",
@@ -68,6 +96,7 @@ namespace InventoryERP
                          defaults: new { controller = "PropertyListing", action = "FinallyPropertySave" }
                      );
             #endregion
+
             #region Routes for News Controlller
             routes.MapRoute(
                name: "PublishNews",

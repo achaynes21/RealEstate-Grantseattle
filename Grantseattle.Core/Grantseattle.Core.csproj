@@ -70,6 +70,8 @@
     <Compile Include="Domain\Base\IAggregateRoot.cs" />
     <Compile Include="Domain\Base\IEntity.cs" />
     <Compile Include="Domain\Base\IValueObject.cs" />
+    <Compile Include="Domain\BlogCategory.cs" />
+    <Compile Include="Domain\BlogContent.cs" />
     <Compile Include="Domain\Country.cs" />
     <Compile Include="Domain\Enums.cs" />
     <Compile Include="Domain\Items.cs" />

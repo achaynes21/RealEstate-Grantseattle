@@ -50,12 +50,16 @@
     <Compile Include="Services\Services\IAccountService.cs" />
     <Compile Include="Services\Services\IAgentService.cs" />
     <Compile Include="Services\Services\IAuthenticationService.cs" />
+    <Compile Include="Services\Services\IBlogCategoryService.cs" />
+    <Compile Include="Services\Services\IBlogPostService.cs" />
     <Compile Include="Services\Services\ICountryService.cs" />
     <Compile Include="Services\Services\IEmailService.cs" />
     <Compile Include="Services\Services\IItemService.cs" />
     <Compile Include="Services\Services\Implementations\AccountService.cs" />
     <Compile Include="Services\Services\Implementations\Agentservice.cs" />
     <Compile Include="Services\Services\Implementations\AuthenticationService.cs" />
+    <Compile Include="Services\Services\Implementations\BlogCategoryService.cs" />
+    <Compile Include="Services\Services\Implementations\BlogPostService.cs" />
     <Compile Include="Services\Services\Implementations\CountryService.cs" />
     <Compile Include="Services\Services\Implementations\EmailService.cs" />
     <Compile Include="Services\Services\Implementations\NewsPortalService.cs" />
