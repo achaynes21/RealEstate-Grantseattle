@@ -16,11 +16,14 @@ namespace InventoryERP.Controllers
         protected IAgentService AgentService { get; private set; }
         protected IAccountService AccountService { get; private set; }
         protected IBlogCategoryService BlogCategoryService { get; private set; }
-        public BlogController(IAgentService agentService, IAccountService accountService, IBlogCategoryService blogCategoryService)
+        protected IBlogPostService BlogPostService { get; private set; }
+        public BlogController(IAgentService agentService, IAccountService accountService,
+            IBlogCategoryService blogCategoryService, IBlogPostService blogPostService)
         {
             AgentService = agentService;
             AccountService = accountService;
             BlogCategoryService = blogCategoryService;
+            BlogPostService = blogPostService;
         }
 
         // GET: Blog

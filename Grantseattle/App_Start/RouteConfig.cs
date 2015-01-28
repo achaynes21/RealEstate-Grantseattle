@@ -12,6 +12,35 @@ namespace InventoryERP
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            #region BlogPost
+            routes.MapRoute(
+                         name: "BlogPostCreate",
+                         url: "Blog-Post",
+                         defaults: new { controller = "Blogpost", action = "Create" }
+                     );
+            routes.MapRoute(
+                        name: "BlogPostList",
+                        url: "BlogPost-List",
+                        defaults: new { controller = "Blogpost", action = "Index" }
+                    );
+            routes.MapRoute(
+                        name: "BlogPostDetails",
+                        url: "BlogPost-Details",
+                        defaults: new { controller = "Blogpost", action = "Details" }
+                    );
+            routes.MapRoute(
+                        name: "BlogPostEdit",
+                        url: "Blog-Edit",
+                        defaults: new { controller = "Blogpost", action = "Edit" }
+                    );
+            routes.MapRoute(
+                        name: "BlogPostDelete",
+                        url: "Blog-Delete",
+                        defaults: new { controller = "Blogpost", action = "Delete" }
+                    );
+
+            #endregion
+
             #region Blog
             routes.MapRoute(
                           name: "BlogList",
