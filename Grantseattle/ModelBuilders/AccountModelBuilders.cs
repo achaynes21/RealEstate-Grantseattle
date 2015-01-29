@@ -1,4 +1,5 @@
 ﻿using InventoryERP.Core;
+using InventoryERP.Domain;
 using InventoryERP.Services;
 using InventoryERP.Services.Models;
 using InventoryERP.Web.Models;
@@ -15,10 +16,17 @@ namespace InventoryERP.Web.ModelBuilders
 
     public class SignInModelBuilder
     {
-        public static void SignIn(SignInViewModel model, IAuthenticationService authenticationService, ModelStateDictionary modelState)
+        public static Member SignIn(SignInViewModel model, IAuthenticationService authenticationService, ModelStateDictionary modelState)
         {
-            if (!authenticationService.LoginAsMember(model.Email, model.Password, model.RememberMe))
-                modelState.AddModelError("ERROR", "Incorrect username/password.");
+            var user = authenticationService.LoginAsMember(model.Email, model.Password, model.RememberMe);
+            if (!String.IsNullOrEmpty(user.Role))
+            {
+                return user;
+            }
+            modelState.AddModelError("ERROR", "Incorrect username/password.");
+            return new Member();
+            //if (!authenticationService.LoginAsMember(model.Email, model.Password, model.RememberMe))
+            //    modelState.AddModelError("ERROR", "Incorrect username/password.");
         }
     }
 

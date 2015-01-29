@@ -31,22 +31,23 @@ namespace InventoryERP.Services.Implementations
             Authentication.SaveAuthenticationInformation(user.Id, user.Email, "Member", true, user.FirstName + " " + user.LastName, user.FriendlyUrl);
 
             return true;
-        }       
+        }
 
-        public bool LoginAsMember(string username, string password, bool rememberMe)
+        public Member LoginAsMember(string username, string password, bool rememberMe)
         {
             Member user = MemberRepository.GetQuery().FirstOrDefault(x => x.Email.ToLower() == username.ToLower() && x.Password == password && !x.Deleted && !x.Deactivated);
-            if (user == null) return false;
-
+            if (user == null) //return false;
+                return new Member();
             Authentication.SaveAuthenticationInformation(user.Id, user.Email, "Member", true, user.FirstName + " " + user.LastName, user.FriendlyUrl);
 
-            return true;
-        }       
+            //return true;
+            return user;
+        }
 
         public void Logout()
         {
             HttpContext.Current.Session.Abandon();
             FormsAuthentication.SignOut();
-        }        
+        }
     }
 }

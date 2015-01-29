@@ -17,7 +17,7 @@ namespace InventoryERP.Domain
         public string FacebookUrl { get; set; }
         public string TwitterUrl { get; set; }
         public string WebsiteUrl { get; set; }
-
+        public string Role { get; set; }
         public Address Address { get; set; }
     }
 }

@@ -177,6 +177,7 @@
     <Compile Include="AccountController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\AuthorizeAccess.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -184,6 +185,7 @@
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogPostController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
@@ -247,6 +249,15 @@
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Frontend\bootstrap.min.css" />
+    <Content Include="Content\Frontend\custom.css" />
+    <Content Include="Content\Frontend\font-awesome.min.css" />
+    <Content Include="Content\Frontend\Img\warring_logo.jpg" />
+    <Content Include="Content\Frontend\magnific-popup.css" />
+    <Content Include="Content\Frontend\owl.carousel.css" />
+    <Content Include="Content\Frontend\styles\real-estate.css" />
+    <Content Include="Content\Frontend\styles\skin-lblue.css" />
+    <Content Include="Content\Frontend\styles\style.css" />
     <Content Include="Content\img\btn-circle_hover-bg.png" />
     <Content Include="Content\img\campaigns\1-lg.jpg" />
     <Content Include="Content\img\campaigns\1.jpg" />
@@ -387,6 +398,15 @@
     <Content Include="Scripts\file-uploader\jquery.xdr-transport.js" />
     <Content Include="Scripts\file-uploader\load-image.min.js" />
     <Content Include="Scripts\file-uploader\tmpl.min.js" />
+    <Content Include="Scripts\Frontend\custom.js" />
+    <Content Include="Scripts\Frontend\html5shiv.js" />
+    <Content Include="Scripts\Frontend\jquery.gmap.min.js" />
+    <Content Include="Scripts\Frontend\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\Frontend\main.js" />
+    <Content Include="Scripts\Frontend\owl.carousel.min.js" />
+    <Content Include="Scripts\Frontend\placeholders.js" />
+    <Content Include="Scripts\Frontend\real-estate.js" />
+    <Content Include="Scripts\Frontend\respond.min.js" />
     <Content Include="Scripts\heartcode-canvasloader-min.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\imagesloaded.min.js" />
@@ -763,6 +783,14 @@
     <Content Include="Views\BlogPost\Index.cshtml" />
     <Content Include="Views\BlogPost\Details.cshtml" />
     <Content Include="Views\BlogPost\Edit.cshtml" />
+    <Content Include="Views\Shared\_Frontend.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Client\ContactUs.cshtml" />
+    <Content Include="Views\Client\AboutUs.cshtml" />
+    <Content Include="Views\Client\News.cshtml" />
+    <Content Include="Views\Client\Blog.cshtml" />
+    <Content Include="Views\Client\OurService.cshtml" />
+    <Content Include="Views\Client\MyFavourite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

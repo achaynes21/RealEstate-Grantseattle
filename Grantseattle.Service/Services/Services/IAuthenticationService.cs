@@ -9,7 +9,7 @@ namespace InventoryERP.Services
 {
     public interface IAuthenticationService
     {
-        bool LoginAsMember(string username, string password, bool rememberMe);
+        Member LoginAsMember(string username, string password, bool rememberMe);
         bool FacebookLoginAsMember(string username, bool rememberMe);
         void Logout();
     }

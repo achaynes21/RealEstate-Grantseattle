@@ -12,6 +12,44 @@ namespace InventoryERP
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            #region Client
+            routes.MapRoute(
+                        name: "ClientHome",
+                        url: "Client",
+                        defaults: new { controller = "Client", action = "Index" }
+                    );
+            routes.MapRoute(
+                       name: "ClientContactUs",
+                       url: "ContactUs",
+                       defaults: new { controller = "Client", action = "ContactUs" }
+                   );
+            routes.MapRoute(
+                       name: "ClientAboutUs",
+                       url: "AboutUs",
+                       defaults: new { controller = "Client", action = "AboutUs" }
+                   );
+            routes.MapRoute(
+                       name: "ClientNews",
+                       url: "News",
+                       defaults: new { controller = "Client", action = "News" }
+                   );
+            routes.MapRoute(
+                       name: "ClientBlog",
+                       url: "Blogging",
+                       defaults: new { controller = "Client", action = "Blog" }
+                   );
+            routes.MapRoute(
+                       name: "ClientFavourite",
+                       url: "MyFavourite",
+                       defaults: new { controller = "Client", action = "MyFavourite" }
+                   );
+            routes.MapRoute(
+                       name: "ClientService",
+                       url: "ourServices",
+                       defaults: new { controller = "Client", action = "OurService" }
+                   );
+            #endregion
+
             #region BlogPost
             routes.MapRoute(
                          name: "BlogPostCreate",
@@ -30,12 +68,12 @@ namespace InventoryERP
                     );
             routes.MapRoute(
                         name: "BlogPostEdit",
-                        url: "Blog-Edit",
+                        url: "BlogPost-Edit",
                         defaults: new { controller = "Blogpost", action = "Edit" }
                     );
             routes.MapRoute(
                         name: "BlogPostDelete",
-                        url: "Blog-Delete",
+                        url: "BlogPost-Delete",
                         defaults: new { controller = "Blogpost", action = "Delete" }
                     );
 
@@ -267,7 +305,11 @@ namespace InventoryERP
             //    url: "confirm-email",
             //    defaults: new { controller = MVC.Account.Name, action = MVC.Account.ActionNames.EmailConfirmation }
             //);
-
+            routes.MapRoute(
+                name: "CreateAdmin",
+                url: "Admin",
+                defaults: new { controller = MVC.Account.Name, action = "CreateAdmin" }
+            );
             #endregion
 
             #region Routes for Home Controller

@@ -67,9 +67,13 @@ namespace InventoryERP.Web.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            SignInModelBuilder.SignIn(model, AuthenticationService, ModelState);
+            var user = SignInModelBuilder.SignIn(model, AuthenticationService, ModelState);
 
-            if (ModelState.IsValid) return RedirectToRoute(MVC.RouteNames.Home.Index);
+            if (ModelState.IsValid)
+
+                if (user.Role.Equals("Admin")) { return RedirectToRoute(MVC.RouteNames.Home.Index); }
+                else if (user.Role.Equals("Member")) { return RedirectToAction("Index","Client"); }
+                
 
             return View(model);
         }
@@ -135,12 +139,35 @@ namespace InventoryERP.Web.Controllers
                 AuthenticationService.LoginAsMember(model.Email, model.Password, model.RememberMe);
                 //EmailService.SendEmailVarification(member.FirstName + " " + member.LastName, member.Email, member.EmailVerificationCode);
 
-                return RedirectToRoute(MVC.RouteNames.Home.Index);
+                //return RedirectToRoute(MVC.RouteNames.Home.Index);
+                return RedirectToAction("Index", "Client");
             }
 
             return View(model);
         }
 
+        [AllowAnonymous]
+        public ActionResult CreateAdmin()
+        {
+            try
+            {
+                var member = new Member();
+                member.Email = "aileenhaynes21@gmail.com";
+                member.FirstName = "aileen";
+                member.LastName = "haynes";
+                member.Password = "123456#";
+                member.EmailVerificationCode = Guid.NewGuid().NewGuidString();
+                member.CreatedAt = DateTime.UtcNow;
+                member.Role = "Admin";
+                AccountService.SaveMember(member);
+                return RedirectToAction("SignIn");
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
         [AllowAnonymous]
         public virtual ActionResult EmailConfirmation(string code)
         {

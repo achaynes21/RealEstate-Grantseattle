@@ -23,7 +23,7 @@ namespace InventoryERP.Services.Implementations
         public Member CreateMember(CreateMemberModel model)
         {
             Member entity = new Member();
-
+            entity.Role = "Member";
             model.ToMember(entity);
             MemberRepository.Save(entity);
 
@@ -32,7 +32,7 @@ namespace InventoryERP.Services.Implementations
 
         public void SaveMember(Member entity)
         {
-
+            MemberRepository.Save(entity);
         }
 
         public Member GetUserByEmail(string email)

@@ -19,7 +19,7 @@ namespace InventoryERP.Services.ModelConverters
             target.Password = souce.Password;
             target.EmailVerificationCode = Guid.NewGuid().NewGuidString();
             target.CreatedAt = DateTime.UtcNow;
-
+            target.Role = "Member";
             return target;
         }
     }

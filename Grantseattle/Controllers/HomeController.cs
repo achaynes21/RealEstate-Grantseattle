@@ -1,4 +1,5 @@
-﻿using InventoryERP.Web.Controllers;
+﻿using InventoryERP.App_Start;
+using InventoryERP.Web.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace InventoryERP.Controllers
     public partial class HomeController : BaseMVCController
     {
         [Authorize]
+        //[AuthorizeAccess]
         public virtual ActionResult Index()
         {
             return View();
