@@ -776,6 +776,7 @@
     <Content Include="Views\Client\OurService.cshtml" />
     <Content Include="Views\Client\MyFavourite.cshtml" />
     <Content Include="Views\BlogPost\Delete.cshtml" />
+    <Content Include="Views\Account\PasswordChange.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

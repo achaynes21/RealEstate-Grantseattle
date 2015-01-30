@@ -75,7 +75,7 @@ namespace InventoryERP.Controllers
                 blogContent.Status = Propertys.PropertyStatusText.Active;
                 //blogContent.BlogCategory.BlogContents.Add(blogContent); 
                 BlogPostService.Save(blogContent);
-                return RedirectToAction("Create", new { message = "Blog Publish Successfully" });
+                return RedirectToAction("Index");
             }
             catch (Exception)
             {

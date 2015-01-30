@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>@ViewBag.Title - Grantseattle Admin Panel </title>
-
     <!-- Bootstrap Core CSS -->
     <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css">
     <!-- Fonts -->
@@ -25,14 +23,9 @@
     <link href="~/Content/css/responsive.css" rel="stylesheet">
     <link href="~/Content/css/animate.css" rel="stylesheet">
 
-    
     <script src="~/Scripts/jquery-1.11.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
-
     @*<link href="~/Scripts/file-uploader/css/jquery.fileupload.css" rel="stylesheet" />
-    <link href="~/Scripts/file-uploader/css/jquery.fileupload-ui.css" rel="stylesheet" />*@
+        <link href="~/Scripts/file-uploader/css/jquery.fileupload-ui.css" rel="stylesheet" />*@
     @RenderSection("css", required: false)
     <!--[if lt IE 9]>
         <link href="~/Contents/styles-ie8.css" rel="stylesheet">
@@ -64,7 +57,6 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                     <ul class="nav navbar-nav">
-
                         @if (!InventoryERP.Core.HttpContextHelper.IsAuthenticated)
                         {
                             @*var currentSignInCSS = Request.Url.ToString().ToLower().Contains(Url.RouteUrl(MVC.RouteNames.Account.SignIn).ToLower()) ? "active" : "";
@@ -92,16 +84,30 @@
                                 <a href="@Url.Action("PropertyRegistration", "PropertyListing")"> Property Listing</a>
                             </li>
                             <li class="page-scroll">
-                                <a href="@Url.Action("Create", "Blog")"> Blog Category </a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog Category <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="@Url.Action("Create", "Blog")"> Add Blog Category </a></li>
+                                    <li><a href="@Url.Action("Index", "Blog")">Manage Category</a></li>
+                                </ul>
                             </li>
                             <li class="page-scroll">
-                                <a href="@Url.Action("Create", "BlogPost")"> Blogging </a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="@Url.Action("Create", "BlogPost")"> Add Blog </a></li>
+                                    <li><a href="@Url.Action("Index", "BlogPost")">Manage Blog</a></li>
+                                </ul>
+
+                               
                             </li>
+
                             <li class="page-scroll">
-                                <a href="@Url.RouteUrl(MVC.RouteNames.Account.SignOut)">Sign Out</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profile <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="@Url.Action("PasswordChange", "Account")">Change Password</a></li>
+                                    <li><a href="@Url.Action("SignOut", "Account")">Sign Out</a></li>
+                                </ul>
                             </li>
                         }
-
                         @*<li class="page-scroll">
                                 <a href="@Url.RouteUrl(MVC.RouteNames.Home.FAQ)">FAQ</a>
                             </li>*@
@@ -120,7 +126,6 @@
                         @ViewBag.ErrorMessage
                     </div>
                 }
-
                 @if (ViewBag.SuccessMessage != null)
                 {
                     <div style="padding-left: 31%" class="alert alert-success">
@@ -128,7 +133,6 @@
                         <strong>Success!</strong> @ViewBag.SuccessMessage
                     </div>
                 }
-
                 @if (ViewBag.InfoMessage != null)
                 {
 
@@ -147,16 +151,18 @@
                     <div class="col-sm-8 col-md-8 col-lg-8">
                         <p>&copy; Copyright 2015 - # - All Rights Reserved.</p>
                     </div><!-- col lg 6 -->
-
                 </div><!-- row -->
             </div><!-- container -->
         </section>
         <!-- footer -->
         <div class="dropdown-bg"></div>
     </div>
-
     <!-- Core JavaScript Files -->
-   
+
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.easing.min.js"></script>
     <script src="~/Scripts/jquery.masonry-3.1.5.js"></script>
@@ -164,7 +170,6 @@
     <script src="~/Scripts/selectize/selectize.min.js"></script>
     <script src="~/Scripts/zebra_datepicker/zebra_datepicker.js"></script>
     <script src="~/Scripts/numericfield.js"></script>
-
     <script src="~/Scripts/file-uploader/jquery.fileupload.js"></script>
     <script src="~/Scripts/file-uploader/jquery.fileupload-ui.js"></script>
     <script src="~/Scripts/file-uploader/jquery.iframe-transport.js"></script>
@@ -172,7 +177,6 @@
     <script src="~/Scripts/file-uploader/jquery.fileupload-process.js"></script>
     <script src="~/Scripts/file-uploader/jquery.fileupload-image.js"></script>
     <script src="~/Scripts/file-uploader/jquery.fileupload-validate.js"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="~/Scripts/simplr.js"></script>
     <script src="~/Scripts/modernizr.custom.js"></script>
@@ -182,11 +186,6 @@
     <script src="~/Scripts/scripts.js"></script>
     <script src="~/Scripts/locationLookup.js"></script>
 
-
-
     @RenderSection("scripts", required: false)
 </body>
 </html>
-
-
-

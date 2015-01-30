@@ -277,6 +277,22 @@ namespace InventoryERP.Web.Controllers
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult PasswordChange()
+        {
+            var resetPass = new ResetPasswordModel();
+            return View(resetPass);
+        }
 
+        [HttpPost]
+        public ActionResult PasswordChange(ResetPasswordModel resetPasswordModel)
+        {
+            if (!ModelState.IsValid) return View(resetPasswordModel);
+            var userId = HttpContextHelper.Current.UserId;
+            var user = AccountService.GetUserById(userId);
+            user.Password = resetPasswordModel.Password;
+            AccountService.SaveMember(user);
+            ViewBag.SuccessMessage = "Password Update Successfully";
+            return View();
+        }
 	}
 }

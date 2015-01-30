@@ -60,7 +60,7 @@ namespace InventoryERP.Controllers
                 category.CreatedAt = DateTime.UtcNow;
                 category.Status = Propertys.PropertyStatusText.Active;
                 BlogCategoryService.Save(category);
-                return RedirectToAction("Create", new { message = "Category Add Successfully" });
+                return RedirectToAction("Index");
             }
             catch (Exception)
             {
