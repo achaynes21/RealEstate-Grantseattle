@@ -226,13 +226,13 @@ namespace InventoryERP
             routes.MapRoute(
                name: "CreateItem",
                url: "create-item",
-               defaults: new { controller = MVC.Item.Name, action = MVC.Item.ActionNames.CreateItem }
+               defaults: new { controller = "Item", action = "CreateItem" }
            );
 
             routes.MapRoute(
                name: "ItemList",
                url: "items",
-               defaults: new { controller = MVC.Item.Name, action = MVC.Item.ActionNames.ViewItems }
+               defaults: new { controller = "Item", action = "ViewItems" }
            );
 
             #endregion
@@ -242,44 +242,44 @@ namespace InventoryERP
             routes.MapRoute(
                 name: "LogInWithFacebook",
                 url: "log-in-with-facebook",
-                defaults: new { controller = MVC.Account.Name, action = MVC.Account.ActionNames.LogInWithFacebook }
+                defaults: new { controller = "Account", action = "LogInWithFacebook" }
             );
 
             routes.MapRoute(
                 name: "SignUpWithFacebook",
                 url: "sign-up-with-facebook",
-                defaults: new { controller = MVC.Account.Name, action = MVC.Account.ActionNames.SignUpWithFacebook }
+                defaults: new { controller = "Account", action = "SignUpWithFacebook" }
             );
 
             routes.MapRoute(
                 name: "EmailExist",
                 url: "email-exist",
-                defaults: new { controller = MVC.Account.Name, action = MVC.Account.ActionNames.EmailExist }
+                defaults: new { controller = "Account", action = "EmailExist" }
             );
 
             routes.MapRoute(
                 name: "SignUp",
                 url: "sign-up",
-                defaults: new { controller = MVC.Account.Name, action = MVC.Account.ActionNames.SignUp }
+                defaults: new { controller = "Account", action = "SignUp" }
             );
 
 
             routes.MapRoute(
                 name: "SignIn",
                 url: "",
-                defaults: new { controller = MVC.Account.Name, action = MVC.Account.ActionNames.SignIn }
+                defaults: new { controller = "Account", action = "SignIn" }
             );
 
             routes.MapRoute(
                 name: "SignOut",
                 url: "sign-out",
-                defaults: new { controller = MVC.Account.Name, action = MVC.Account.ActionNames.SignOut }
+                defaults: new { controller = "Account", action = "SignOut" }
             );
 
             routes.MapRoute(
                 name: "ForgotPassword",
                 url: "forgot-password",
-                defaults: new { controller = MVC.Account.Name, action = MVC.Account.ActionNames.ForgotPassword }
+                defaults: new { controller = "Account", action = "ForgotPassword" }
             );
 
             //routes.MapRoute(
@@ -308,7 +308,7 @@ namespace InventoryERP
             routes.MapRoute(
                 name: "CreateAdmin",
                 url: "Admin",
-                defaults: new { controller = MVC.Account.Name, action = "CreateAdmin" }
+                defaults: new { controller = "Account", action = "CreateAdmin" }
             );
             #endregion
 
@@ -317,7 +317,7 @@ namespace InventoryERP
             routes.MapRoute(
                 name: "Index",
                 url: "home",
-                defaults: new { controller = MVC.Home.Name, action = MVC.Home.ActionNames.Index }
+                defaults: new { controller = "Home", action = "Index" }
             );
 
             //routes.MapRoute(
@@ -328,8 +328,8 @@ namespace InventoryERP
 
             routes.MapRoute(
                 name: "About",
-                url: "about-job-vizz",
-                defaults: new { controller = MVC.Home.Name, action = MVC.Home.ActionNames.About }
+                url: "about-job",
+                defaults: new { controller = "Home", action = "About" }
             );
 
             //routes.MapRoute(
@@ -350,7 +350,7 @@ namespace InventoryERP
             routes.MapRoute(
                 name: "Default",
                 url: "log-in",
-                defaults: new { controller = MVC.Account.Name, action = MVC.Account.ActionNames.SignIn }
+                defaults: new { controller = "Account", action = "SignIn" }
             );
 
             routes.MapRoute(
