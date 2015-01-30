@@ -19,7 +19,7 @@ namespace InventoryERP.Controllers
             AccountService = accountService;
         }
         [Authorize]
-        [AuthorizeAccess]
+        //[AuthorizeAccess]
         public virtual ActionResult Index()
         {
             var email = System.Web.HttpContext.Current.User.Identity.Name;

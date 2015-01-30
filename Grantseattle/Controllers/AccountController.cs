@@ -151,6 +151,7 @@ namespace InventoryERP.Web.Controllers
         {
             try
             {
+
                 var member = new Member();
                 member.Email = "aileenhaynes21@gmail.com";
                 member.FirstName = "aileen";
@@ -159,6 +160,17 @@ namespace InventoryERP.Web.Controllers
                 member.EmailVerificationCode = Guid.NewGuid().NewGuidString();
                 member.CreatedAt = DateTime.UtcNow;
                 member.Role = "Admin";
+                #region Check if email already exist
+
+                var memberCheck = AccountService.GetUserByEmail(member.Email.Trim());
+                if (memberCheck != null)
+                {
+                    ModelState.AddModelError("Email", "This email address is already registered with another account.");
+                    return RedirectToAction("SignIn");
+                }
+
+                #endregion
+
                 AccountService.SaveMember(member);
                 return RedirectToAction("SignIn");
             }
