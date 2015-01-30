@@ -682,6 +682,7 @@ D:\My Work\Grantseattle\29-1-2015\RealEstate-Grantseattle-master\Grantseattle\bi
 D:\My Work\Grantseattle\29-1-2015\RealEstate-Grantseattle-master\Grantseattle\obj\Debug\Grantseattle.Web.csprojResolveAssemblyReference.cache
 D:\My Work\Grantseattle\29-1-2015\RealEstate-Grantseattle-master\Grantseattle\obj\Debug\InventoryERP.dll
 D:\My Work\Grantseattle\29-1-2015\RealEstate-Grantseattle-master\Grantseattle\obj\Debug\InventoryERP.pdb
+D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\obj\Debug\Grantseattle.Web.csprojResolveAssemblyReference.cache
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\InventoryERP.dll.config
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\InventoryERP.dll
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\InventoryERP.pdb
@@ -709,6 +710,7 @@ D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Mo
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\MongoDB.Driver.dll
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Newtonsoft.Json.dll
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Owin.dll
+D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\System.Net.Http.Formatting.dll
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\System.Web.Helpers.dll
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\System.Web.Http.dll
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\System.Web.Http.SelfHost.dll
@@ -721,7 +723,6 @@ D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Sy
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\System.Web.WebPages.Razor.dll
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\T4MVCExtensions.dll
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\WebGrease.dll
-D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\System.Net.Http.Formatting.dll
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\InvertoryERP.Core.pdb
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\InventoryERP.Service.pdb
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Autofac.xml
@@ -729,6 +730,7 @@ D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Au
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\MongoDB.Bson.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\MongoDB.Driver.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Newtonsoft.Json.xml
+D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\System.Net.Http.Formatting.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\System.Web.Helpers.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\System.Web.Http.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\System.Web.Http.SelfHost.xml
@@ -754,7 +756,5 @@ D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Mi
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Microsoft.Owin.Security.Google.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\System.Net.Http.Formatting.xml
-D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\obj\Debug\Grantseattle.Web.csprojResolveAssemblyReference.cache
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\obj\Debug\InventoryERP.dll
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\obj\Debug\InventoryERP.pdb

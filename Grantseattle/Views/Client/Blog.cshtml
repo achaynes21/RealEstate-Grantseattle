@@ -1,13 +1,15 @@
-﻿<div class="main-block">
+﻿@using InvertoryERP.Core.Domain
+@model IEnumerable<InvertoryERP.Core.Domain.BlogContent>
+<div class="main-block">
 
     <!-- Page heading two starts -->
 
     <div class="page-heading-two">
         <div class="container">
             <h2>Blog Two <span>Something goes here</span></h2>
-            <div class="breads">
+            @*<div class="breads">
                 Home / <a href="#">Page</a> / <a href="#">Sub Page</a>
-            </div>
+            </div>*@
             <div class="clearfix"></div>
         </div>
     </div>
@@ -49,17 +51,30 @@
                             <!-- Widgets Content -->
                             <div class="widget-content categories">
                                 <ul class="list-6">
-                                    <li><a href="#">Web Designing <span class="color">(5)</span></a></li>
+                                    @if (ViewBag.category != null)
+                                    {
+                                        var count = 0;
+                                        foreach (BlogCategory cate in ViewBag.category)
+                                        {
+                                            <li><a href="#">@cate.Name <span class="color">
+                                                                           @if (cate.BlogContents != null)
+                                                                           {
+                                                                               count = cate.BlogContents.Count;
+                                                                           }
+                                                                           (@count)
+                                                                       </span></a></li>
+                                        }
+                                        
+                                    }
+                                    @*<li><a href="#">Web Designing <span class="color">(5)</span></a></li>
                                     <li><a href="#">Graphic Design <span class="color">(5)</span></a></li>
                                     <li><a href="#">PHP Dev <span class="color">(5)</span></a></li>
                                     <li><a href="#">Android Dev <span class="color">(5)</span></a></li>
                                     <li><a href="#">Photoshop <span class="color">(5)</span></a></li>
-                                    <li><a href="#">WordPress <span class="color">(5)</span></a></li>
+                                    <li><a href="#">WordPress <span class="color">(5)</span></a></li>*@
                                 </ul>
                             </div>
                         </div>
-
-
                         <!-- Tag Widget -->
                         <div class="s-widget">
                             <h5><i class="fa fa-tags color"></i>&nbsp; Tags</h5>
@@ -81,9 +96,6 @@
                                 <a href="#" class="label label-color">general</a>
                             </div>
                         </div>
-
-
-
                         <!-- Social media widget -->
                         <div class="s-widget">
                             <h5><i class="fa fa-share color"></i>&nbsp; Social Media</h5>
@@ -109,37 +121,40 @@
 
                     </div>
                 </div>
-
-
                 <!-- Mainbar column -->
                 <div class="col-md-8">
-
-                    <!-- Blog item starts -->
-                    <div class="blog-two-item">
-                        <!-- blog two Img -->
-                        <div class="blog-two-img">
-                            <!-- Image -->
-                            <a href="#"><img src="../Content/Brave/img/backgrounds/s4.jpg" alt="" class="img-responsive img-thumbnail" /></a>
-                        </div>
-                        <!-- blog two Content -->
-                        <div class="blog-two-content">
-                            <!-- Heading -->
-                            <h3><a href="http://grantseattle.com/Home/blog-single.html">Ducimus Qui Blanditiis Prey Ntium Deleniti</a></h3>
-                            <!-- Blog meta -->
-                            <div class="blog-meta">
-                                <!-- Date -->
-                                <a href="#"><i class="fa fa-calendar"></i> &nbsp; 24.3.2014</a> &nbsp;
-                                <!-- Author -->
-                                <a href="#"><i class="fa fa-user"></i> &nbsp; Ravi Kumar</a> &nbsp;
-                                <!-- Comments -->
-                                <a href="#"><i class="fa fa-comments"></i> &nbsp; 6 Comments</a>
+                    @foreach (var item in Model)
+                    {
+                        <!-- Blog item starts -->
+                        <div class="blog-two-item">
+                            <!-- blog two Content -->
+                            <div class="blog-two-content">
+                                <!-- Heading -->
+                                <h3><a href="http://grantseattle.com/">@item.Title</a></h3>
+                                <!-- Blog meta -->
+                                <div class="blog-meta">
+                                    <!-- Date -->
+                                    <a href="#"><i class="fa fa-calendar"></i> &nbsp; @item.CreatedAt</a> &nbsp;
+                                    <!-- Author -->
+                                    <a href="#"><i class="fa fa-user"></i> &nbsp; @item.Member.FirstName @item.Member.LastName</a> &nbsp;
+                                    <!-- Comments -->
+                                    @*<a href="#"><i class="fa fa-comments"></i> &nbsp; 6 Comments</a>*@
+                                </div>
+                                <!-- Paragraph -->
+                                <p>@Html.Raw(item.Content)</p>
                             </div>
-                            <!-- Paragraph -->
-                            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae  rerum hic tenetur. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae  rerum hic tenetur. </p>
+
+                            <!-- blog two Img -->
+                            <div class="blog-two-img">
+                                <!-- Image -->
+                                <a href="#"><img src="../Content/Brave/img/backgrounds/s4.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+                            </div>
+                        
                         </div>
-                    </div>
                     <!-- Blog item ends -->
-                    <!-- Blog item starts -->
+                    }
+                    
+                    @*<!-- Blog item starts -->
                     <div class="blog-two-item">
                         <!-- blog two Img -->
                         <div class="blog-two-video video-container">
@@ -224,7 +239,7 @@
                         <li><a href="#">4</a></li>
                         <li><a href="#">5</a></li>
                         <li><a href="#">&raquo;</a></li>
-                    </ul>
+                    </ul>*@
                 </div>
 
             </div>

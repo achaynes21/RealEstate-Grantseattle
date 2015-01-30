@@ -1,26 +1,32 @@
-﻿
+﻿@model IEnumerable<InvertoryERP.Core.Domain.News>
+
 <div class="main-block">
     <div class="magazine">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <!-- Magazine single content starts -->
-                    <div class="magazine-single">
-                        <!-- Heading -->
-                        <h2>$92.5M and counting: Chinese investor scoops up another Puget Sound-area property</h2>
-                        <!-- Magazine meta -->
-                        <div class="magazine-meta">
-                            <i class="fa fa-calendar"></i> Oct 7, 2014, 6:03pm PDT
-                            <i class="fa fa-user"></i> Marc Stiles &nbsp; - Puget Sound Business Journal
-                            <i class="fa fa-tag"></i> Puget Sound, Chinese investor
+                    
+                    @foreach (var item in Model)
+                    {
+                        <!-- Magazine single content starts -->
+                        <div class="magazine-single">
+                            <!-- Heading -->
+                            <h2>@item.Heading</h2>
+                            <!-- Magazine meta -->
+                            <div class="magazine-meta">
+                                <i class="fa fa-calendar"></i> @item.CreatedAt PDT
+                                <i class="fa fa-user"></i> @item.Member.FirstName @item.Member.LastName &nbsp; - @item.Source
+                                @*<i class="fa fa-tag"></i> Puget Sound, Chinese investor*@
+                            </div>
+                            <a href=""> <img src="@item.ImageUrl" alt="" class="img-responsive img-thumbnail" /></a>
+                            <p>@item.NewsDescription</p>
+                            @*<p>A group of Chinese investors has bought yet another Puget Sound area property, paying $11.2 million for a medical-office building in Redmond's Overlake area, according to a deed that was recorded Tuesday with King County.</p>
+                            <a href="#"><img src="../../media.bizj.us/view/img/3983001/screen-shot-2014-10-07-at-42036-pm_600xx410-273-0-2.png" alt="" class="img-responsive img-thumbnail" /></a>
+                            <p>The LLC is affiliated with a group that has been snapping up properties in the region since 2012, including paying a total of $36.7 million for two adjacent high-rise development sites in downtown Bellevue and more than $7.5 million for a property on Kirkland's waterfront, where a 13-unit condo project is planned.</p>
+                            <p>Jia Lin Niu is a part of the various entities. She and her husband, Wei Lin Niu, and partners have acquired nearly $92.5 million worth of real estate, from commercial properties to waterfront houses in Medina, West Seattle and on Mercer Island, records show.</p>*@
                         </div>
-                        <p>A group of Chinese investors has bought yet another Puget Sound area property, paying $11.2 million for a medical-office building in Redmond's Overlake area, according to a deed that was recorded Tuesday with King County.</p>
-                        <a href="#"><img src="../../media.bizj.us/view/img/3983001/screen-shot-2014-10-07-at-42036-pm_600xx410-273-0-2.png" alt="" class="img-responsive img-thumbnail" /></a>
-                        <p>The LLC is affiliated with a group that has been snapping up properties in the region since 2012, including paying a total of $36.7 million for two adjacent high-rise development sites in downtown Bellevue and more than $7.5 million for a property on Kirkland's waterfront, where a 13-unit condo project is planned.</p>
-                        <p>Jia Lin Niu is a part of the various entities. She and her husband, Wei Lin Niu, and partners have acquired nearly $92.5 million worth of real estate, from commercial properties to waterfront houses in Medina, West Seattle and on Mercer Island, records show.</p>
-                    </div>
-                    <!-- Magazine single content ends -->
-
+                        <!-- Magazine single content ends -->
+                    }
                     <hr />
                     <div class="brand-bg">
                         <a href="#" class="facebook"><i class="fa fa-facebook circle-3"></i></a>
@@ -95,7 +101,10 @@
 
                     <!-- Sidebar -->
                     <div class="sidebar">
-
+                        @for (int ii = 1; ii < Model.Count(); ii++)
+                        {
+                            
+                        }
                         <!-- Magazine item one starts -->
                         <div class="magazine-item mag-1">
                             <!-- Image -->

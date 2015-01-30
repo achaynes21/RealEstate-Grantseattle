@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using InventoryERP.Core;
 using InventoryERP.Service.Services.Services;
 using InventoryERP.Service.Services.Services.Implementations;
 using InventoryERP.Services;
@@ -47,11 +48,13 @@ namespace InventoryERP.Controllers
         // GET: /BlogPost/Create
         public ActionResult Create(string message ="")
         {
+            var category = new SelectList(BlogCategoryService.GetList(), "Id", "Name");
             if (!String.IsNullOrEmpty(message))
             {
-                ViewBag.SuccessMessage = "Blog Category Added";
+                ViewBag.SuccessMessage = message;
             }
             var model = new BlogContent();
+            ViewBag.Category = category;
             return View(model);
             
         }
@@ -59,12 +62,18 @@ namespace InventoryERP.Controllers
         //
         // POST: /BlogPost/Create
         [HttpPost]
-        public ActionResult Create(BlogContent blogContent)
+        public ActionResult Create(BlogContent blogContent, string Category = "")
         {
             try
             {
+                var category = BlogCategoryService.GetById(Category);
+                blogContent.BlogCategory = category;
+                var userId = HttpContextHelper.Current.UserId;
+                var user = AccountService.GetUserById(userId);
+                blogContent.Member = user;
                 blogContent.CreatedAt = DateTime.UtcNow;
                 blogContent.Status = Propertys.PropertyStatusText.Active;
+                //blogContent.BlogCategory.BlogContents.Add(blogContent); 
                 BlogPostService.Save(blogContent);
                 return RedirectToAction("Create", new { message = "Blog Publish Successfully" });
             }
@@ -106,7 +115,7 @@ namespace InventoryERP.Controllers
         public ActionResult Delete(string id)
         {
             var model = BlogPostService.GetById(id);
-            return View();
+            return View(model);
         }
 
         //

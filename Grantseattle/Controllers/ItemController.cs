@@ -57,7 +57,7 @@ namespace InventoryERP.Web.Controllers
 
             ItemListViewModelBuilder.Build(model, ItemService);
 
-            return View(MVC.Item.Views.ItemList, model);
+            return RedirectToAction("CreateItem");
         }
 	}
 }

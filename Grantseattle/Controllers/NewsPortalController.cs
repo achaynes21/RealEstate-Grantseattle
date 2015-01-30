@@ -77,13 +77,14 @@ namespace InventoryERP.Controllers
                 {
                     var fileName = model.UploadImage.FileName;
                     var dir = new DirectoryInfo(GetFilePath("GrantSeattle", ""));
-                    var fileInfo = new FileInfo(dir.ToString() + "/" + fileName);
+                    var fileInfo = new FileInfo(dir.ToString() + fileName);
                     if (fileInfo.Exists)
                     {
                         fileInfo.Delete();
                     }
-                    model.UploadImage.SaveAs(dir.ToString() + "/" + fileName);
-                    model.ImageUrl = dir.ToString() + "/" + fileName;
+                    model.UploadImage.SaveAs(dir.ToString() + fileName);
+                    model.ImageUrl = dir.ToString() + fileName;
+                    
                 }
                 var userId = HttpContextHelper.Current.UserId;
                 NewsEditModelBuilder.Save(NewsPortalService, model, AccountService, userId);

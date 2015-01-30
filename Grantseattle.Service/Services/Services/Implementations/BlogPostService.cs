@@ -37,7 +37,8 @@ namespace InventoryERP.Service.Services.Services.Implementations
 
         public IList<BlogContent> GetList()
         {
-            return bolgPostRepository.GetQuery().Where(x => x.Status == Propertys.PropertyStatusText.Active).ToList();
+            return bolgPostRepository.GetQuery().
+                Where(x => x.Status == Propertys.PropertyStatusText.Active).OrderByDescending(x => x.CreatedAt).ToList();
         }
 
         public void Edit(BlogContent oldModelObj)

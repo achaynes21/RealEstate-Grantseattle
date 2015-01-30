@@ -31,13 +31,15 @@ namespace InventoryERP.Service.Services.Services.Implementations
         public void Delete(News entity)
         {
             entity.IsDelete = true;
+            entity.Status = Propertys.PropertyStatusText.Delete;
             entity.UpdatedAt = DateTime.UtcNow;
             NewsRepository.Save(entity);
         }
 
         public IList<News> GetNewsList()
         {
-            return NewsRepository.GetQuery().Where(x => !x.IsDelete).ToList();
+            return NewsRepository.GetQuery().Where(x => !x.IsDelete && x.Status ==Propertys.PropertyStatusText.Active)
+                .OrderByDescending(x=> x.CreatedAt).ToList();
         }
 
         public void Edit(News oldModelObj)

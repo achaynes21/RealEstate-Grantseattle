@@ -26,7 +26,9 @@ namespace InventoryERP.ModelBuilders
             }
             item.CreatedBy = user;
             item.UpdatedAt = DateTime.UtcNow;
+            item.Status = Propertys.PropertyStatusText.Active;
             item.IsDelete = false;
+            item.Member = user;
             newsPortalService.Save(item);
         }
     }
