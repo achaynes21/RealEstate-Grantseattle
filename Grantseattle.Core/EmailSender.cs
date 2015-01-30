@@ -42,9 +42,20 @@ namespace InventoryERP.Core
 
         public static void Send(Dictionary<string, string> receivers, string subject, string body, List<string> attachments, Dictionary<string, string> ccList, Dictionary<string, string> bccList, bool isHtml)
         {
+            //MailMessage emailMessage = new MailMessage();
+            //emailMessage.From = new MailAddress("account2@gmail.com", "Account2");
+            //emailMessage.To.Add(new MailAddress("account1@gmail.com", "Account1"));
+            //emailMessage.Subject = "SUBJECT";
+            //emailMessage.Body = "BODY";
+            //emailMessage.Priority = MailPriority.Normal;
+            //SmtpClient MailClient = new SmtpClient("smtp.gmail.com", 587);
+            //MailClient.EnableSsl = true;
+            //MailClient.Credentials = new System.Net.NetworkCredential("account2@gmail.com", "password");
+            //MailClient.Send(emailMessage);
+
             var mailMessage = new MailMessage();
 
-            mailMessage.From = new MailAddress(App.Configurations.FromEmail.Value, App.Configurations.FromEmailName.Value);
+            mailMessage.From = new MailAddress("taskin0909@yahoo.com", "Grantseattle");
 
             var eReceivers = receivers.GetEnumerator();
             while (eReceivers.MoveNext())
@@ -90,9 +101,10 @@ namespace InventoryERP.Core
 
             try
             {
-                var smtp = new SmtpClient();                
-                
-                smtp.Send(mailMessage);
+                var smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.EnableSsl = true;
+                smtp.Credentials = new System.Net.NetworkCredential("taskin0909@yahoo.com", "password");
+                //smtp.Send(mailMessage);
                 smtp = null;
 
                 GC.Collect();

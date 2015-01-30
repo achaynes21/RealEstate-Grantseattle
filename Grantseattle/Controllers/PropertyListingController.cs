@@ -140,6 +140,7 @@ namespace InventoryERP.Controllers
             var model = PropertyTypeService.GetList();
             return View(model);
         }
+       
         [HttpGet]
         public ActionResult PropertyTypeDetails(string id)
         {
@@ -151,6 +152,23 @@ namespace InventoryERP.Controllers
         {
             var model = PropertyTypeService.GetById(id);
             return View(model);
+        }
+
+        public ActionResult PropertyTypeEdit(string id)
+        {
+            var model = PropertyTypeService.GetById(id);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult PropertyTypeEdit(PropertyType newModelObj)
+        {
+            var oldModelObj = PropertyTypeService.GetById(newModelObj.Id);
+            oldModelObj.Name = newModelObj.Name;
+            oldModelObj.Description = newModelObj.Description;
+            oldModelObj.UpdatedAt = DateTime.UtcNow;
+            PropertyTypeService.Save(oldModelObj);
+            ViewBag.SuccessMessage = "Update Successfully";
+            return View();
         }
         // POST: Agent/Delete/5
         [HttpPost]

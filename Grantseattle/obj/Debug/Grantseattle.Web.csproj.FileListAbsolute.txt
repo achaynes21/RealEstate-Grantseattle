@@ -682,7 +682,7 @@ D:\My Work\Grantseattle\29-1-2015\RealEstate-Grantseattle-master\Grantseattle\bi
 D:\My Work\Grantseattle\29-1-2015\RealEstate-Grantseattle-master\Grantseattle\obj\Debug\Grantseattle.Web.csprojResolveAssemblyReference.cache
 D:\My Work\Grantseattle\29-1-2015\RealEstate-Grantseattle-master\Grantseattle\obj\Debug\InventoryERP.dll
 D:\My Work\Grantseattle\29-1-2015\RealEstate-Grantseattle-master\Grantseattle\obj\Debug\InventoryERP.pdb
-D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\obj\Debug\Grantseattle.Web.csprojResolveAssemblyReference.cache
+D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\EntityFramework.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\InventoryERP.dll.config
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\InventoryERP.dll
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\InventoryERP.pdb
@@ -742,7 +742,6 @@ D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Sy
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\System.Web.WebPages.Razor.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\System.Web.Optimization.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Antlr3.Runtime.pdb
-D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\EntityFramework.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\EntityFramework.SqlServer.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Microsoft.AspNet.Identity.Core.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Microsoft.AspNet.Identity.Owin.xml
@@ -756,5 +755,6 @@ D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Mi
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Microsoft.Owin.Security.Google.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\obj\Debug\Grantseattle.Web.csprojResolveAssemblyReference.cache
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\obj\Debug\InventoryERP.dll
 D:\Project\Freelancing\GitRealEstate\RealEstate-Grantseattle\Grantseattle\obj\Debug\InventoryERP.pdb

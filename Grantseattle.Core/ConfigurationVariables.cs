@@ -36,8 +36,8 @@ namespace InventoryERP.Core
 
         //public ConfigurationVariable<string> AdminEmail = new ConfigurationVariable<string>("AdminEmail");
         //public ConfigurationVariable<string> AdminEmailName = new ConfigurationVariable<string>("AdminEmailName");
-        public ConfigurationVariable<string> FromEmail = new ConfigurationVariable<string>("FromEmail");
-        public ConfigurationVariable<string> FromEmailName = new ConfigurationVariable<string>("FromEmailName");
+        public ConfigurationVariable<string> FromEmail = new ConfigurationVariable<string>("aileenhaynes21@gmail.com");
+        public ConfigurationVariable<string> FromEmailName = new ConfigurationVariable<string>("aileenhaynes");
         //public ConfigurationVariable<string> GreenEarthEmail = new ConfigurationVariable<string>("GreenEarthEmail");
         //public ConfigurationVariable<string> HasnaeenEmail = new ConfigurationVariable<string>("HasnaeenEmail");
 

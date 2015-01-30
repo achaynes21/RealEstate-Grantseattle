@@ -140,6 +140,11 @@ namespace InventoryERP
                          defaults: new { controller = "PropertyListing", action = "PropertyTypeDelete" }
                      );
             routes.MapRoute(
+                         name: "PropertyTypeEdit",
+                         url: "PropertyType-Edit",
+                         defaults: new { controller = "PropertyListing", action = "PropertyTypeEdit" }
+                     );
+            routes.MapRoute(
                          name: "PropertyRegistration",
                          url: "Property-Registration",
                          defaults: new { controller = "PropertyListing", action = "PropertyRegistration" }
@@ -204,11 +209,11 @@ namespace InventoryERP
                url: "Agent-List",
                defaults: new { controller = "Agent", action = "AgentList" }
            );
-            // routes.MapRoute(
-            //    name: "Edit",
-            //    url: "Agent-Edit",
-            //    defaults: new { controller = "Agent", action = "Edit" }
-            //);
+            routes.MapRoute(
+               name: "AgentEdit",
+               url: "Agent-Edit",
+               defaults: new { controller = "Agent", action = "Edit" }
+           );
             routes.MapRoute(
                name: "AgentDetails",
                url: "Agent-Details",

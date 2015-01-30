@@ -218,7 +218,7 @@ namespace InventoryERP.Web.Controllers
             {
                 string code = AccountService.SetResetPasswordCode(model.Email);
 
-                EmailService.SendForgotPassword(member.FirstName + " " + member.LastName, member.Email, code);
+                EmailService.SendForgotPassword(member.FirstName + " " + member.LastName, member.Email, member.Password);
                 
                 ViewData["Message"] = "An email has been sent to your email address with a link to reset your password.";
 

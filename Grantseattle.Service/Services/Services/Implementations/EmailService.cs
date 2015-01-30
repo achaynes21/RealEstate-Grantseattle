@@ -78,12 +78,15 @@ namespace InventoryERP.Services.Implementations
             if (TemplateFolder.IsNullOrWhiteSpace()) return;
 
             //string body = System.IO.File.ReadAllText(TemplateFolder + "\\" + App.Configurations.ForgotPassword.Value);
-            string body = System.IO.File.ReadAllText(App.Configurations.ForgotPassword.Value);
-            string subject = App.Configurations.ForgotPasswordSubject.Value;
+            //string body = System.IO.File.ReadAllText(App.Configurations.ForgotPassword.Value);
+            //string subject = App.Configurations.ForgotPasswordSubject.Value;
 
-            body = body.Replace("$Link$", LinkHelper.Domain + (LinkHelper.Domain.EndsWith("/") ? "" : "/") + "reset-password?code={0}&email={1}".FormatWith(resetPasswordCode, email));
-            body = body.Replace("$Recipient$", email);
+            //body = body.Replace("$Link$", LinkHelper.Domain + (LinkHelper.Domain.EndsWith("/") ? "" : "/") + "reset-password?code={0}&email={1}".FormatWith(resetPasswordCode, email));
+            //body = body.Replace("$Recipient$", email);
 
+            string subject = "Forget Password Grantseattle";
+
+            string body = "Dear" + name + "Your current password for grantseattle Is " + resetPasswordCode;
             Dictionary<string, string> receivers = new Dictionary<string, string>();
             receivers.Add(email, name);
 

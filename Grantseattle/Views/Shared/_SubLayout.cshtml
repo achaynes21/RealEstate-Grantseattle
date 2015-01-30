@@ -72,13 +72,28 @@
                         else
                         {
                             <li class="page-scroll">
-                                <a href="@Url.Action("PublishNews", "NewsPortal")">News</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">News <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="@Url.Action("PublishNews", "NewsPortal")">Add News</a></li>
+                                    <li><a href="@Url.Action("NewsList", "NewsPortal")">Manage News</a></li>
+                                </ul>
+
+
                             </li>
                             <li class="page-scroll">
-                                <a href="@Url.Action("Create", "Agent")"> Agent</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Agent <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="@Url.Action("Create", "Agent")"> Add Agent</a></li>
+                                    <li><a href="@Url.Action("AgentList", "Agent")">Manage Agent</a></li>
+                                </ul>
                             </li>
                             <li class="page-scroll">
-                                <a href="@Url.Action("CreatePropertyType", "PropertyListing")"> Property Type</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Property Type <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="@Url.Action("CreatePropertyType", "PropertyListing")"> Add Property Type</a></li>
+                                    <li><a href="@Url.Action("PropertyTypeList", "PropertyListing")">Manage Property Type</a></li>
+                                </ul>
+
                             </li>
                             <li class="page-scroll">
                                 <a href="@Url.Action("PropertyRegistration", "PropertyListing")"> Property Listing</a>
@@ -97,7 +112,7 @@
                                     <li><a href="@Url.Action("Index", "BlogPost")">Manage Blog</a></li>
                                 </ul>
 
-                               
+
                             </li>
 
                             <li class="page-scroll">

@@ -88,7 +88,7 @@ namespace InventoryERP.Controllers
                 }
                 var userId = HttpContextHelper.Current.UserId;
                 NewsEditModelBuilder.Save(NewsPortalService, model, AccountService, userId);
-                return RedirectToAction("NewsList", "NewsPortal");
+                return RedirectToAction("NewsList");
             }
             catch (Exception e)
             {
@@ -115,9 +115,11 @@ namespace InventoryERP.Controllers
         {
             var oldModelObj = NewsPortalService.GetNewsById(newModelObj.Id);
             oldModelObj.Heading = newModelObj.Heading;
+            oldModelObj.Source = newModelObj.Source;
             oldModelObj.NewsDescription = newModelObj.NewsDescription;
             oldModelObj.UpdatedAt = DateTime.UtcNow;
-            NewsPortalService.Edit(oldModelObj);
+            NewsPortalService.Save(oldModelObj);
+            ViewBag.SuccessMessage = "Update Successfully";
             return View();
         }
 

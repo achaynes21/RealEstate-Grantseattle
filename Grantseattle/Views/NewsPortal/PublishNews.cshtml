@@ -35,6 +35,7 @@
                         @Html.LabelFor(model => model.NewsDescription, new { @class = "control-label col-md-4" })
                         <div class="col-md-8">
                             @Html.TextAreaFor(model => model.NewsDescription, 10, 20, new { @class = "form-control", @placeholder = "Enter News" })
+                            @*@Html.EditorFor(model => model.NewsDescription)*@
                             @Html.ValidationMessageFor(model => model.NewsDescription)
                         </div>
                     </div>

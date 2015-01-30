@@ -140,20 +140,31 @@ namespace InventoryERP.Controllers
 
         // POST: Agent/Create
         // GET: Agent/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            var agent = AgentService.GetAgentById(id);
+            return View(agent);
         }
 
         // POST: Agent/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Agent newModelObj)
         {
             try
             {
                 // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                var oldModelObj = AgentService.GetAgentById(newModelObj.Id);
+                oldModelObj.LastName = newModelObj.LastName;
+                oldModelObj.FirstName = newModelObj.FirstName;
+                oldModelObj.Email = newModelObj.Email;
+                oldModelObj.Address1 = newModelObj.Address1;
+                oldModelObj.Address2 = newModelObj.Address2;
+                oldModelObj.ContactNo = newModelObj.ContactNo;
+                oldModelObj.Remarks = newModelObj.Remarks;
+                oldModelObj.UpdatedAt = DateTime.UtcNow;
+                AgentService.Save(oldModelObj);
+                ViewBag.SuccessMessage = "Update Successfully";
+                return View();
             }
             catch
             {
