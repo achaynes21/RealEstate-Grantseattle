@@ -29,6 +29,7 @@ namespace InvertoryERP.Core.Domain
         public virtual PropertyType PropertyType { get; set; }
         public virtual PropertyLocationType PropertyLocationType { get; set; }
         public virtual PropertyPurpose PropertyPurpose { get; set; }
+        public virtual PropertyDetails PropertyDetails { get; set; }
         public class PropertyStatusText
         {
             public static int Active

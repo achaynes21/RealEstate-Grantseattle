@@ -11,9 +11,9 @@ namespace InventoryERP.Models
     {
         public virtual string Unit { get; set; }
 
-        [Display(Name = "Street Name")]
+        [Display(Name = "Address")]
         public virtual string StreetAddress1 { get; set; }
-        [Display(Name = "Street Address")]
+        [Display(Name = "Location")]
         public virtual string StreetAddress2 { get; set; }
         [Display(Name = "Hide Street Address")]
         public virtual bool IsHideStreetAddress { get; set; }

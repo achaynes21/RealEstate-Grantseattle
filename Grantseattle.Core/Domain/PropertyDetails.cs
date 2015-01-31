@@ -23,7 +23,17 @@ namespace InvertoryERP.Core.Domain
         public virtual bool IsHideStreetView { get; set; }
         public virtual string Suberb { get; set; }
         public virtual string Municipility { get; set; }
-        public virtual Propertys Property { get; set; }
+        
+        [Display(Name = "Bed")]
+        public virtual int BedCount { get; set; }
+        [Display(Name = "Parking")]
+        public virtual int ParkingCount { get; set; }
+        [Display(Name = "Bath")]
+        public virtual int BathCount { get; set; }
+        [Display(Name = "Area")]
+        public virtual int AreaCount { get; set; }
+
+        //public virtual Propertys Property { get; set; }
         public int Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }

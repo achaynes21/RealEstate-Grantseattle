@@ -26,20 +26,17 @@ namespace InventoryERP.Controllers
         protected IPropertyTypeService PropertyTypeService { get; private set; }
         protected IPropertyRegistration PropertyRegistrationService { get; private set; }
         protected IAgentService AgentService { get; private set; }
+        protected IPropertyDeteilsSevice PropertyDeteilsSevice { get; private set; }
         List<string> array = new List<String>();
 
         PropertyImages propertyImages;
         PropertyModelView sPropertyModelView;
         PropertyDetailsModelView propertyDetailsModelView;
-        public ActionResult Index(string message= "")
-        {
-            ViewBag.Message = message;
-            return View();
-        }
-
+       
         public PropertyListingController(IPropertyPurposeService propertyPurposeService,
             IPropertyLocationService propertyLocationService, IAccountService accountService,
-            IPropertyTypeService propertyTypeService, IAgentService agentService, IPropertyRegistration propertyRegistrationService)
+            IPropertyTypeService propertyTypeService, IAgentService agentService,
+            IPropertyRegistration propertyRegistrationService, IPropertyDeteilsSevice propertyDeteilsSevice)
         {
             PropertyPurposeService = propertyPurposeService;
             PropertyLocationService = propertyLocationService;
@@ -47,6 +44,12 @@ namespace InventoryERP.Controllers
             PropertyTypeService = propertyTypeService;
             AgentService = agentService;
             PropertyRegistrationService = propertyRegistrationService;
+            PropertyDeteilsSevice = propertyDeteilsSevice;
+        }
+        public ActionResult Index(string message = "")
+        {
+            ViewBag.Message = message;
+            return View();
         }
         [AllowAnonymous]
         [HttpGet]
@@ -71,7 +74,7 @@ namespace InventoryERP.Controllers
             propertyPurposes.Add(propertyPurposeSell);
 
             PropertyPurposeService.SavePropertyPurpose(propertyPurposes);
-            return RedirectToAction("Index",new{message="Internal Operation "});
+            return RedirectToAction("Index", new { message = "Internal Operation " });
         }
         [AllowAnonymous]
         [HttpGet]
@@ -104,7 +107,7 @@ namespace InventoryERP.Controllers
             locationTypes.Add(propertyLocationFarm);
 
             PropertyLocationService.SavePropertyLocation(locationTypes);
-            return RedirectToAction("Index",new{message="Internal Operation "});
+            return RedirectToAction("Index", new { message = "Internal Operation " });
         }
 
         [HttpGet]
@@ -140,7 +143,7 @@ namespace InventoryERP.Controllers
             var model = PropertyTypeService.GetList();
             return View(model);
         }
-       
+
         [HttpGet]
         public ActionResult PropertyTypeDetails(string id)
         {
@@ -271,7 +274,7 @@ namespace InventoryERP.Controllers
                         var fileName = DateTime.Now.DayOfYear + file.FileName;
                         string filePath = System.IO.Path.Combine(
                                    Server.MapPath("/Images/PropertyImages/"), defaultFileUrl);
-                        array.Add(filePath);
+                        //array.Add(filePath);
                         var fileInfo = new FileInfo(filePath);
                         if (fileInfo.Exists)
                         {
@@ -282,13 +285,10 @@ namespace InventoryERP.Controllers
                             array.Add(filePath);
                             break;
                         }
-                        else
-                        {
-                            file.SaveAs(filePath);
-                            thumbImageFile = Thumbnail(120, 80, fileName, filePath);
-                            array.Add(filePath);
-                            break;
-                        }
+                        file.SaveAs(filePath);
+                        thumbImageFile = Thumbnail(120, 80, fileName, filePath);
+                        array.Add(filePath);
+                        break;
                     }
                 }
 
@@ -301,59 +301,87 @@ namespace InventoryERP.Controllers
             var propertyDetails = new PropertyDetails();
             var propertys = new Propertys();
 
-            //bool isPropertyExits = _propertyRegistration.isPropertyExits(sPropertyModelView.Title, sPropertyModelView.Price, sPropertyModelView.IsEstablished);
-            //if (isPropertyExits == false)
-            //{
-            //property table
-            propertys.Agent = sPropertyModelView.Agent;
-            propertys.PropertyType = sPropertyModelView.PropertyType;
-            propertys.PropertyLocationType = sPropertyModelView.PropertyLocationType;
-            propertys.PropertyPurpose = sPropertyModelView.PropertyPurposeType;
-            //propertys.PropertyDetails = propertyDetails; //presave
-            propertys.CreatedAt = DateTime.UtcNow;
-            propertys.IsEstablished = sPropertyModelView.IsEstablished;
-            propertys.IsPriceDisplay = sPropertyModelView.IsPriceDisplay;
-            propertys.Location = propertyDetailsModelView.StreetAddress1 + " " + propertyDetailsModelView.StreetAddress2;
-            propertys.UpdatedAt = DateTime.UtcNow;
-            propertys.Price = sPropertyModelView.Price;
-            propertys.PriceText = sPropertyModelView.PriceinText;
-            propertys.Name = sPropertyModelView.Title;
-            propertys.Status = Propertys.PropertyStatusText.Active;
-            propertys.Name = sPropertyModelView.Title;
-
-            //images set 
-            IList<PropertyImages> propertyImageses = new List<PropertyImages>();
-            foreach (var pImage in array)
+            bool isPropertyExits = PropertyRegistrationService.IsPropertyExits(sPropertyModelView.Title, sPropertyModelView.Price);
+            if (isPropertyExits == false)
             {
-                propertyImages = new PropertyImages();
-                propertyImages.CreatedAt = DateTime.UtcNow;
-                propertyImages.UpdatedAt = DateTime.UtcNow;
-                //propertyImages.Imagedescription = propertyImagesModelView.Imagedescription;
-                propertyImages.ImageUrl = pImage;
-                propertyImages.ThumbUrl = thumbImageFile;
-                //propertyImages.Property = propertys;
-                propertyImageses.Add(propertyImages);
+                //property table
+                propertys.Agent = sPropertyModelView.Agent;
+                propertys.PropertyType = sPropertyModelView.PropertyType;
+                propertys.PropertyLocationType = sPropertyModelView.PropertyLocationType;
+                propertys.PropertyPurpose = sPropertyModelView.PropertyPurposeType;
+                //propertys.PropertyDetails = propertyDetails; //presave
+                propertys.CreatedAt = DateTime.UtcNow;
+                propertys.IsEstablished = sPropertyModelView.IsEstablished;
+                propertys.IsPriceDisplay = sPropertyModelView.IsPriceDisplay;
+                propertys.Location = propertyDetailsModelView.StreetAddress1 + " " + propertyDetailsModelView.StreetAddress2;
+                propertys.UpdatedAt = DateTime.UtcNow;
+                propertys.Price = sPropertyModelView.Price;
+                propertys.PriceText = sPropertyModelView.PriceinText;
+                propertys.Name = sPropertyModelView.Title;
+                propertys.Status = Propertys.PropertyStatusText.Active;
+                propertys.Name = sPropertyModelView.Title;
+
+                //images set 
+                IList<PropertyImages> propertyImageses = new List<PropertyImages>();
+                foreach (var pImage in array)
+                {
+                    propertyImages = new PropertyImages();
+                    propertyImages.CreatedAt = DateTime.UtcNow;
+                    propertyImages.UpdatedAt = DateTime.UtcNow;
+                    //propertyImages.Imagedescription = propertyImagesModelView.Imagedescription;
+                    propertyImages.ImageUrl = pImage;
+                    propertyImages.ThumbUrl = thumbImageFile;
+                    //propertyImages.Property = propertys;
+                    propertyImageses.Add(propertyImages);
+                }
+
+                propertys.PropertyImageses = propertyImageses;
+                propertiesList.Add(propertys);
+
+                //property details 
+                propertyDetails.Unit = propertyDetailsModelView.Unit;
+                propertyDetails.StreetAddress1 = propertyDetailsModelView.StreetAddress1;
+                propertyDetails.StreetAddress2 = propertyDetailsModelView.StreetAddress2;
+                propertyDetails.Suberb = propertyDetailsModelView.Suberb;
+                propertyDetails.Municipility = propertyDetailsModelView.Municipility;
+                propertyDetails.BedCount = propertyDetailsModelView.BedCount;
+                propertyDetails.BathCount = propertyDetailsModelView.BathCount;
+                propertyDetails.AreaCount = propertyDetailsModelView.AreaCount;
+                propertyDetails.ParkingCount = propertyDetailsModelView.ParkingCount;
+                //propertyDetails. = WebSecurity.CurrentUserId;
+                propertyDetails.CreatedAt = DateTime.UtcNow;
+                propertyDetails.IsHideStreetAddress = propertyDetailsModelView.IsHideStreetAddress;
+                propertyDetails.IsHideStreetView = propertyDetailsModelView.IsHideStreetView;
+                propertyDetails.UpdatedAt = DateTime.UtcNow;
+                //propertyDetails.Property = propertys;
+                propertys.PropertyDetails = propertyDetails;
+                PropertyRegistrationService.Save(propertys);
+                //PropertyDeteilsSevice.Save(propertyDetails);
+                //foreach (var images in propertyImageses)
+                //{
+
             }
-
-            propertys.PropertyImageses = propertyImageses;
-            propertiesList.Add(propertys);
-
-            //property details 
-            propertyDetails.Unit = propertyDetailsModelView.Unit;
-            propertyDetails.StreetAddress1 = propertyDetailsModelView.StreetAddress1;
-            propertyDetails.StreetAddress2 = propertyDetailsModelView.StreetAddress2;
-            propertyDetails.Suberb = propertyDetailsModelView.Suberb;
-            propertyDetails.Municipility = propertyDetailsModelView.Municipility;
-            //propertyDetails. = WebSecurity.CurrentUserId;
-            propertyDetails.CreatedAt = DateTime.UtcNow;
-            propertyDetails.IsHideStreetAddress = propertyDetailsModelView.IsHideStreetAddress;
-            propertyDetails.IsHideStreetView = propertyDetailsModelView.IsHideStreetView;
-            propertyDetails.UpdatedAt = DateTime.UtcNow;
-            propertyDetails.Property = propertys;
-            PropertyRegistrationService.Save(propertys);
+            else
+            {
+                IList<PropertyImages> propertyImageses = new List<PropertyImages>();
+                propertyImages = new PropertyImages();
+                Propertys propertyGetFromDb = PropertyRegistrationService.GetIdenticalPropertyByTitleAndPriceAndEstablished(sPropertyModelView.Title, sPropertyModelView.Price);
+                foreach (var pImage in array)
+                {
+                    propertyImages.CreatedAt = DateTime.UtcNow;
+                    propertyImages.UpdatedAt = DateTime.UtcNow;
+                    //propertyImages.Imagedescription = propertyImagesModelView.Imagedescription;
+                    propertyImages.ImageUrl = pImage;
+                    propertyImages.ThumbUrl = thumbImageFile;
+                    //propertyImages.Property = propertyGetFromDb;
+                    propertyImageses.Add(propertyImages);
+                }
+                PropertyRegistrationService.UpdatePropertyAndPropertyImages(propertyGetFromDb, propertyImages);
+            }
+            var propertiesId = propertys.Id;
             // PropertyRegistration.SaveAllRelatedToProperty( propertyDetails, propertys);
             ViewBag.SuccessMessage = "Property Uploaded Successfully";
-            return RedirectToAction("Index",new {message = "Property Saved Successfully"});
+            return RedirectToAction("Index", new { message = "Property Saved Successfully" });
         }
 
     }

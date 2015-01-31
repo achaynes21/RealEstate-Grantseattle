@@ -12,6 +12,19 @@ namespace InventoryERP
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            #region Search
+            routes.MapRoute(
+                          name: "RentPropertySearch",
+                          url: "RentProperty-Search",
+                          defaults: new { controller = "Search", action = "RentPropertySearch" }
+                      );
+            routes.MapRoute(
+                          name: "PropertySearch",
+                          url: "Property-Search",
+                          defaults: new { controller = "Search", action = "PropertySearch" }
+                      );
+            
+            #endregion
             #region Client
             routes.MapRoute(
                         name: "ClientHome",

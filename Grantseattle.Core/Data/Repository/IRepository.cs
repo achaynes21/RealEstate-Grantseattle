@@ -17,5 +17,9 @@ namespace InventoryERP.Data
         bool Remove(string id);
         void RemoveAll();
 
+
+        IList<InvertoryERP.Core.Domain.Propertys> GetPropertyBySearchingCriter(string cityName, string location, string propType, string bed, string minPrice, string maxPrice, string generalSearch);
+
+        IList<InvertoryERP.Core.Domain.Propertys> GetPropertyBySearchingCriterAgent(string cityName, string location, string propType, string agentName, string generalSearch);
     }
 }

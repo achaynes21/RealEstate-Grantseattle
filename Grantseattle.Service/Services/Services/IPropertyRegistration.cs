@@ -15,5 +15,17 @@ namespace InventoryERP.Service.Services.Services
         IList<Propertys> GetList();
         void Edit(Propertys oldModelObj);
         //void SavePropertyPurpose(IList<Propertys> propertyPurposes);
+
+        bool IsPropertyExits(string title, decimal price);
+
+
+
+        Propertys GetIdenticalPropertyByTitleAndPriceAndEstablished(string title, decimal price);
+
+        void UpdatePropertyAndPropertyImages(Propertys propertyGetFromDb, PropertyImages propertyImages);
+
+        IList<Propertys> GetPropertyBySearchingCriter(string cityName, string location, string propType, string bed, string minPrice, string maxPrice, string generalSearch);
+
+        IList<Propertys> GetPropertyBySearchingCriteriaAgent(string cityName, string location, string propType, string agentName, string generalSearch);
     }
 }

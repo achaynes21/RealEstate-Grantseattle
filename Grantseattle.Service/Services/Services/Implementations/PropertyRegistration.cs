@@ -11,33 +11,33 @@ namespace InventoryERP.Service.Services.Services.Implementations
 {
     public class PropertyRegistration : BaseService, IPropertyRegistration
     {
-        private IRepository<Propertys> propertyRepository { get; set; }
+        private IRepository<Propertys> PropertyRepository { get; set; }
 
-        public PropertyRegistration(IRepository<Propertys> newsRepository)
+        public PropertyRegistration(IRepository<Propertys> propertyRepository)
         {
-            propertyRepository = newsRepository;
+            PropertyRepository = propertyRepository;
         }
 
         public Propertys GetById(string id)
         {
-            return propertyRepository.GetById(id);
+            return PropertyRepository.GetById(id);
         }
 
         public void Save(Propertys entity)
         {
-            propertyRepository.Save(entity);
+            PropertyRepository.Save(entity);
         }
 
         public void Delete(Propertys entity)
         {
             entity.Status = Propertys.PropertyStatusText.Delete;
             entity.UpdatedAt = DateTime.UtcNow;
-            propertyRepository.Save(entity);
+            PropertyRepository.Save(entity);
         }
 
         public IList<Propertys> GetList()
         {
-            return propertyRepository.GetQuery().Where(x => x.Status== Propertys.PropertyStatusText.Active).ToList();
+            return PropertyRepository.GetQuery().Where(x => x.Status == Propertys.PropertyStatusText.Active).ToList();
         }
 
         public void Edit(Propertys oldModelObj)
@@ -46,6 +46,43 @@ namespace InventoryERP.Service.Services.Services.Implementations
             //NewsRepository.
         }
 
-        
+        public bool IsPropertyExits(string title, decimal price)
+        {
+            var ss = PropertyRepository.GetQuery().SingleOrDefault(x => x.Price == price && x.Name == title);
+            if (ss != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public Propertys GetIdenticalPropertyByTitleAndPriceAndEstablished(string title, decimal price)
+        {
+            return PropertyRepository.GetQuery().SingleOrDefault(x => x.Name == title && x.Price == price);
+        }
+
+        public void UpdatePropertyAndPropertyImages(Propertys propertyGetFromDb, PropertyImages propertyImages)
+        {
+            propertyGetFromDb.PropertyImageses.Add(propertyImages);
+            PropertyRepository.Save(propertyGetFromDb);
+        }
+
+        public IList<Propertys> GetPropertyBySearchingCriter(string cityName, string location, string propType, string bed, string minPrice,
+            string maxPrice, string generalSearch)
+        {
+            IList<Propertys> result = PropertyRepository.GetPropertyBySearchingCriter(cityName, location, propType, bed,
+                minPrice, maxPrice, generalSearch);
+            return result;
+           
+
+        }
+
+        public IList<Propertys> GetPropertyBySearchingCriteriaAgent(string cityName, string location, string propType, string agentName,
+            string generalSearch)
+        {
+            IList<Propertys> result = PropertyRepository.GetPropertyBySearchingCriterAgent(cityName, location, propType, agentName, generalSearch);
+            return result;
+           
+        }
     }
 }

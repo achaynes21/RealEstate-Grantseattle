@@ -197,7 +197,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsPortalController.cs" />
     <Compile Include="Controllers\PropertyListingController.cs" />
-    <Compile Include="Controllers\Services.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,6 +221,45 @@
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Brave\css\bootstrap.min.css" />
+    <Content Include="Content\Brave\css\custom.css" />
+    <Content Include="Content\Brave\css\font-awesome.min.css" />
+    <Content Include="Content\Brave\css\magnific-popup.css" />
+    <Content Include="Content\Brave\css\owl.carousel.css" />
+    <Content Include="Content\Brave\css\styles\real-estate.css" />
+    <Content Include="Content\Brave\css\styles\skin-lblue.css" />
+    <Content Include="Content\Brave\css\styles\style.css" />
+    <Content Include="Content\Brave\img\backgrounds\1.jpg" />
+    <Content Include="Content\Brave\img\backgrounds\2.jpg" />
+    <Content Include="Content\Brave\img\backgrounds\3.jpg" />
+    <Content Include="Content\Brave\img\backgrounds\heading-back.jpg" />
+    <Content Include="Content\Brave\img\backgrounds\s1.jpg" />
+    <Content Include="Content\Brave\img\backgrounds\s2.jpg" />
+    <Content Include="Content\Brave\img\backgrounds\s4.jpg" />
+    <Content Include="Content\Brave\img\body\img\1.jpg" />
+    <Content Include="Content\Brave\img\body\img\2.jpg" />
+    <Content Include="Content\Brave\img\body\img\3.jpg" />
+    <Content Include="Content\Brave\img\body\img\4.jpg" />
+    <Content Include="Content\Brave\img\body\img\5.jpg" />
+    <Content Include="Content\Brave\img\body\pattern\1.png" />
+    <Content Include="Content\Brave\img\body\pattern\2.png" />
+    <Content Include="Content\Brave\img\body\pattern\3.png" />
+    <Content Include="Content\Brave\img\body\pattern\4.png" />
+    <Content Include="Content\Brave\img\body\pattern\5.png" />
+    <Content Include="Content\Brave\img\dividers\1.png" />
+    <Content Include="Content\Brave\img\dividers\2.png" />
+    <Content Include="Content\Brave\img\dividers\3.png" />
+    <Content Include="Content\Brave\img\gallery\small\8.jpg" />
+    <Content Include="Content\Brave\img\our-process\arrow.png" />
+    <Content Include="Content\Brave\img\overlay.png" />
+    <Content Include="Content\Brave\img\raster.png" />
+    <Content Include="Content\Brave\img\real-estate\small\1.jpg" />
+    <Content Include="Content\Brave\img\real-estate\small\2.jpg" />
+    <Content Include="Content\Brave\img\real-estate\small\3.jpg" />
+    <Content Include="Content\Brave\img\real-estate\small\4.jpg" />
+    <Content Include="Content\Brave\img\real-estate\small\5.jpg" />
+    <Content Include="Content\Brave\img\real-estate\small\6.jpg" />
+    <Content Include="Content\Brave\img\wedding\overlay.png" />
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
@@ -372,6 +411,9 @@
     <Content Include="Content\typicons\typicons.eot" />
     <Content Include="Content\typicons\typicons.ttf" />
     <Content Include="Content\typicons\typicons.woff" />
+    <Content Include="Content\Brave\fonts\fontawesome-webfont78ce.eot" />
+    <Content Include="Content\Brave\fonts\fontawesome-webfont78ce.ttf" />
+    <Content Include="Content\Brave\fonts\fontawesome-webfontd41d.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\file-uploader\canvas-to-blob.min.js" />
     <Content Include="Scripts\file-uploader\css\jquery.fileupload-ui.css" />
@@ -779,6 +821,7 @@
     <Content Include="Views\Account\PasswordChange.cshtml" />
     <Content Include="Views\Agent\Edit.cshtml" />
     <Content Include="Views\PropertyListing\PropertyTypeEdit.cshtml" />
+    <Content Include="Views\Search\_SearchResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

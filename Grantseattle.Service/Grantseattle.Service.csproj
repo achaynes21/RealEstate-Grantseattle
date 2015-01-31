@@ -64,12 +64,14 @@
     <Compile Include="Services\Services\Implementations\EmailService.cs" />
     <Compile Include="Services\Services\Implementations\NewsPortalService.cs" />
     <Compile Include="Services\Services\Implementations\ItemService.cs" />
+    <Compile Include="Services\Services\Implementations\PropertyDetailsService.cs" />
     <Compile Include="Services\Services\Implementations\PropertyLocationService.cs" />
     <Compile Include="Services\Services\Implementations\PropertyPurposeService.cs" />
     <Compile Include="Services\Services\Implementations\PropertyRegistration.cs" />
     <Compile Include="Services\Services\Implementations\PropertyTypeService.cs" />
     <Compile Include="Services\Services\Implementations\StateService.cs" />
     <Compile Include="Services\Services\INewsPortalService.cs" />
+    <Compile Include="Services\Services\IPropertyDeteilsSevice.cs" />
     <Compile Include="Services\Services\IPropertyLocationService.cs" />
     <Compile Include="Services\Services\IPropertyPurposeService.cs" />
     <Compile Include="Services\Services\IPropertyRegistration.cs" />

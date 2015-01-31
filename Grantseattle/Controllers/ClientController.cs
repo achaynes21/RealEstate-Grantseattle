@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using InventoryERP.Service.Services.Services;
+using InventoryERP.Service.Services.Services.Implementations;
 using InventoryERP.Services;
+using InvertoryERP.Core.Domain;
 
 namespace InventoryERP.Controllers
 {
@@ -15,20 +17,51 @@ namespace InventoryERP.Controllers
         protected IAccountService AccountService { get; private set; }
         protected IBlogPostService BlogPostService { get; private set; }
         protected IBlogCategoryService BlogCategoryService { get; private set; }
-        public ClientController(INewsPortalService newsPortalService, 
+        protected IAgentService AgentService { get; private set; }
+
+        protected IPropertyPurposeService PropertyPurposeService { get; private set; }
+        protected IPropertyLocationService PropertyLocationService { get; private set; }
+        protected IPropertyTypeService PropertyTypeService { get; private set; }
+        protected IPropertyRegistration PropertyRegistration { get; private set; }
+
+        public ClientController(
+            INewsPortalService newsPortalService, 
             IAccountService accountService, 
             IBlogPostService blogPostService,
-            IBlogCategoryService blogCategoryService)
+            IBlogCategoryService blogCategoryService, 
+            IAgentService agentService,
+            IPropertyTypeService propertyTypeService,
+            IPropertyLocationService propertyLocationService,
+            IPropertyPurposeService propertyPurposeService,
+            IPropertyRegistration propertyRegistration)
+
         {
             NewsPortalService = newsPortalService;
             AccountService = accountService;
             BlogPostService = blogPostService;
             BlogCategoryService = blogCategoryService;
+            AgentService = agentService;
+            PropertyTypeService = propertyTypeService;
+            PropertyLocationService = propertyLocationService;
+            PropertyPurposeService = propertyPurposeService;
+            PropertyRegistration = propertyRegistration;
         }
         // GET: Client
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public ActionResult Index()
         {
+            var propertyType = new SelectList(PropertyTypeService.GetList(), "Id", "Name").ToList();
+            var agent = new SelectList(AgentService.GetAgentList(), "Id", "FirstName");
+            var propertyLocation = new SelectList(PropertyLocationService.GetList(), "Id", "Name");
+            var propertyPurpose = new SelectList(PropertyPurposeService.GetList(), "Id", "Name");
+
+            IList<Propertys> pList = PropertyRegistration.GetList();
+            ViewBag.PropertyList = pList;
+            ViewBag.PROTYPE = propertyType;
+            ViewBag.ALLAGENT = agent;
+            ViewBag.PROLOCATION = propertyLocation;
+            ViewBag.PROPURPOSETYPE = propertyPurpose;
+
             return View();
         }
         [HttpGet]
@@ -66,6 +99,7 @@ namespace InventoryERP.Controllers
         {
             return View();
         }
-        
+        //[HttpPost]
+
     }
 }
