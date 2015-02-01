@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grantseattle.Web", "Grantseattle\Grantseattle.Web.csproj", "{0533EF53-0969-4635-8DB7-E08CDC0A3D87}"
 EndProject
@@ -10,8 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grantseattle.Service", "Grantseattle.Service\Grantseattle.Service.csproj", "{5FC1C5EF-6EA4-453F-9016-BF5734F460D3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grantseattle.Tester", "Grantseattle.Tester\Grantseattle.Tester.csproj", "{9FCA4898-0D9F-4087-A72B-5977011834B2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grantseattle.Api", "Grantseattle.Api\Grantseattle.Api.csproj", "{20E8547C-700B-4FA2-B6E5-6152E0E21149}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{9FCA4898-0D9F-4087-A72B-5977011834B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FCA4898-0D9F-4087-A72B-5977011834B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FCA4898-0D9F-4087-A72B-5977011834B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20E8547C-700B-4FA2-B6E5-6152E0E21149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20E8547C-700B-4FA2-B6E5-6152E0E21149}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20E8547C-700B-4FA2-B6E5-6152E0E21149}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20E8547C-700B-4FA2-B6E5-6152E0E21149}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
