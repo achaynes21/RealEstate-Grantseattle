@@ -1,6 +1,24 @@
 /* Your JS codes here */
 $(document).ready(function () {
 
+    $(document).on("click", ".favouriteProperty", function () {
+        alert("Clicked");
+        var pId = $(this).attr('data-propertId');
+        alert(pId);
+        $.ajax({
+            url: "AddTo-Favourite",
+            type: "POST",
+            data: { pId: pId },
+            success: function (data) {
+                //console.log(data);
+            },
+            complete: function () {
+            },
+            error: function (data) {
+            }
+        });
+    });
+
     $(document).on("click", "#contactUs", function () {
         $.ajax({
             url: "ContactUs",
@@ -79,19 +97,7 @@ $(document).ready(function () {
             }
         });
     });
-    //$(document).on("click", "#home", function () {
-    //    $.ajax({
-    //        url: "Client",
-    //        type: "Get",
-    //        success: function (data) {
-    //            $('#MainContentFromServer').html(data);
-    //        },
-    //        complete: function () {
-    //        },
-    //        error: function (data) {
-    //        }
-    //    });
-    //});
+  
     $(document).on("click", "#RentSearch", function() {
         var cityName = $("#cityName").val();
         var location = $("#location").val();
@@ -163,6 +169,9 @@ $(document).ready(function () {
                 }
             });
         });
+        
+
+       
     });
 
 });

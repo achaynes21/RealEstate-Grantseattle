@@ -23,7 +23,7 @@ namespace InventoryERP
                           url: "Property-Search",
                           defaults: new { controller = "Search", action = "PropertySearch" }
                       );
-            
+
             #endregion
             #region Client
             routes.MapRoute(
@@ -61,6 +61,11 @@ namespace InventoryERP
                        url: "ourServices",
                        defaults: new { controller = "Client", action = "OurService" }
                    );
+            routes.MapRoute(
+            name: "AddToFavourite",
+            url: "AddTo-Favourite",
+            defaults: new { controller = "Client", action = "AddToFavourite" }
+        );
             #endregion
 
             #region BlogPost

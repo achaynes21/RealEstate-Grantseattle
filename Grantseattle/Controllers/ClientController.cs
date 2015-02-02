@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using InventoryERP.Core;
 using InventoryERP.Service.Services.Services;
 using InventoryERP.Service.Services.Services.Implementations;
 using InventoryERP.Services;
@@ -97,7 +98,36 @@ namespace InventoryERP.Controllers
         [HttpGet]
         public ActionResult MyFavourite()
         {
-            return View();
+            var userId = HttpContextHelper.Current.UserId;
+            var user = AccountService.GetUserById(userId);
+            ViewBag.PropertyList = user.Propertyses;
+            return PartialView("_MyFavourite");
+            //return View("Index");
+        }
+        [HttpPost]
+        public ActionResult AddToFavourite(string pId)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(pId))
+                {
+                    var list = new List<Propertys>();
+                    var property = PropertyRegistration.GetById(pId);
+                    var userId = HttpContextHelper.Current.UserId;
+                    var user = AccountService.GetUserById(userId);
+                    list.Add(property);
+                    var ss = property;
+                    user.Propertyses.Add(ss); 
+                    AccountService.SaveMember(user);
+                    //return PartialView("_MyFavourite");
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            return Json("");
         }
         //[HttpPost]
 

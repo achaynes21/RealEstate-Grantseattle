@@ -226,7 +226,7 @@
                                         <!-- Product Image -->
                                         <img class="img-responsive" src="@propertyList[jj].PropertyImageses[0].ImageUrl.Substring(fIndex)" alt="" height="500px" width="400px" />
                                         <span class="hover-top bg-color">@propertyList[jj].PropertyType.Name</span>
-                                        @*<span class="hover-bottom bg-red">Sale</span>*@
+                                        <span class="hover-bottom bg-red">@propertyList[jj].PropertyPurpose.Name</span>
                                     </div>
                                     <!-- product title -->
                                     <h4><a href="http://grantseattle.com">@propertyList[jj].PropertyDetails.StreetAddress1 - @propertyList[jj].PropertyDetails.StreetAddress2</a></h4>
@@ -237,10 +237,13 @@
                                         <span class="price pull-left">$@propertyList[jj].Price</span>
                                         <div class="clearfix"></div>
                                     </div>
+                                    <div>
+                                        <input type="button" class="btn btn-primary favouriteProperty" data-propertid="@propertyList[jj].Id" value="Add To Favourite"/>
+                                    </div>
                                     <!-- Info -->
                                     <div class="p-info">
-                                        <a href="#">@propertyList[jj].PropertyDetails.BedCount</a>
-                                        <a href="#">3 @propertyList[jj].PropertyDetails.BathCount</a>
+                                        <a href="#">@propertyList[jj].PropertyDetails.BedCount Bed</a>
+                                        <a href="#"> @propertyList[jj].PropertyDetails.BathCount Bath</a>
                                         <a href="#">@propertyList[jj].PropertyDetails.AreaCount ft<sup>2</sup></a>
                                         <div class="clearfix"></div>
                                     </div>
