@@ -1,4 +1,4 @@
-﻿
+﻿@model InvertoryERP.Core.Domain.ContactUs
 <div class="main-block">
     <div class="contact-us-four">
 
@@ -10,7 +10,6 @@
         <br />
 
         <div class="container">
-
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <div class="contact-item">
@@ -19,38 +18,64 @@
                             <h4><i class="fa fa-envelope color"></i>&nbsp;&nbsp;Contact Form</h4>
                             <hr />
                             <!-- Form -->
-                            <form class="form" role="form">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Enter Name">
+                            @using (Html.BeginForm("ContactUsPost", "Client"))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+
+                                    @Html.ValidationSummary(true)
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Name)
+                                            @Html.ValidationMessageFor(model => model.Name)
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Enter Email">
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Email)
+                                            @Html.ValidationMessageFor(model => model.Email)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.PhoneNum, new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.PhoneNum)
+                                            @Html.ValidationMessageFor(model => model.PhoneNum)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Subject, new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Subject)
+                                            @Html.ValidationMessageFor(model => model.Subject)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Message, new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.TextAreaFor(model => model.Message,8,50,null)
+                                            @Html.ValidationMessageFor(model => model.Message)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Create" class="btn btn-primary" />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Phone Number">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Enter Subject">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" id="comments" rows="8" placeholder="Enter Message"></textarea>
-                                </div>
-                                <!-- Button -->
-                                <button type="button" class="btn btn-red">Submit</button>&nbsp;
-                                <button type="button" class="btn btn-default">Reset</button>
-                            </form>
+                            }
+
+
                         </div>
                     </div>
                     <br />

@@ -2,9 +2,9 @@
 $(document).ready(function () {
 
     $(document).on("click", ".favouriteProperty", function () {
-        alert("Clicked");
+        //alert("Clicked");
         var pId = $(this).attr('data-propertId');
-        alert(pId);
+        //alert(pId);
         $.ajax({
             url: "AddTo-Favourite",
             type: "POST",

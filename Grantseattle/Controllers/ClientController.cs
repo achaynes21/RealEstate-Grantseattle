@@ -24,7 +24,7 @@ namespace InventoryERP.Controllers
         protected IPropertyLocationService PropertyLocationService { get; private set; }
         protected IPropertyTypeService PropertyTypeService { get; private set; }
         protected IPropertyRegistration PropertyRegistration { get; private set; }
-
+        protected IContactUsService ContactUsService { get; private set; }
         public ClientController(
             INewsPortalService newsPortalService, 
             IAccountService accountService, 
@@ -34,7 +34,8 @@ namespace InventoryERP.Controllers
             IPropertyTypeService propertyTypeService,
             IPropertyLocationService propertyLocationService,
             IPropertyPurposeService propertyPurposeService,
-            IPropertyRegistration propertyRegistration)
+            IPropertyRegistration propertyRegistration,
+            IContactUsService contactUsService)
 
         {
             NewsPortalService = newsPortalService;
@@ -46,6 +47,7 @@ namespace InventoryERP.Controllers
             PropertyLocationService = propertyLocationService;
             PropertyPurposeService = propertyPurposeService;
             PropertyRegistration = propertyRegistration;
+            ContactUsService = contactUsService;
         }
         // GET: Client
         //[AllowAnonymous]
@@ -76,6 +78,16 @@ namespace InventoryERP.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult ContactUsPost(ContactUs contactUs)
+        {
+            contactUs.CreatedAt = DateTime.UtcNow;
+            contactUs.UpdatedAt = DateTime.UtcNow;
+            contactUs.Status = Propertys.PropertyStatusText.Active;
+            ContactUsService.Save(contactUs);
+            ViewBag.SuccessMessage = "Thank You for feedback";
+            return RedirectToAction("Index");
+        }
         [HttpGet]
         public ActionResult News()
         {

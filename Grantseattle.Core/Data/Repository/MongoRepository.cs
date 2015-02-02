@@ -94,6 +94,10 @@ namespace InventoryERP.Data.Implementations
             {
                 criteria = criteria.Where(x => x.Price <= Convert.ToInt32(maxPrice));
             }
+            if (!String.IsNullOrEmpty(generalSearch))
+            {
+                criteria = criteria.Where(x => x.Agent.FirstName.Contains(generalSearch) || x.Location.Contains(generalSearch));
+            }
             var result = criteria.ToList();
             return result;
         }
@@ -119,6 +123,10 @@ namespace InventoryERP.Data.Implementations
             if (!String.IsNullOrEmpty(agentName))
             {
                 criteria = criteria.Where(x => x.Agent.FirstName.Contains(agentName) || x.Agent.LastName.Contains(agentName));
+            }
+            if (!String.IsNullOrEmpty(generalSearch))
+            {
+                criteria = criteria.Where(x => x.Agent.FirstName.Contains(generalSearch) || x.Location.Contains(generalSearch));
             }
             var result = criteria.ToList();
             return result;

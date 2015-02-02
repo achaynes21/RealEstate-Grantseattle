@@ -18,7 +18,10 @@
                                 <i class="fa fa-user"></i> @item.Member.FirstName @item.Member.LastName &nbsp; - @item.Source
                                 @*<i class="fa fa-tag"></i> Puget Sound, Chinese investor*@
                             </div>
-                            <a href=""> <img src="@item.ImageUrl" alt="" class="img-responsive img-thumbnail" /></a>
+                            @{
+                        var fIndex = item.ImageUrl.IndexOf("Uploads", System.StringComparison.Ordinal);
+                            }
+                            <a href=""> <img src="@item.ImageUrl.Substring(fIndex)" alt="" class="img-responsive img-thumbnail" height="500px" width="400px" /></a>
                             <p>@item.NewsDescription</p>
                             @*<p>A group of Chinese investors has bought yet another Puget Sound area property, paying $11.2 million for a medical-office building in Redmond's Overlake area, according to a deed that was recorded Tuesday with King County.</p>
                             <a href="#"><img src="../../media.bizj.us/view/img/3983001/screen-shot-2014-10-07-at-42036-pm_600xx410-273-0-2.png" alt="" class="img-responsive img-thumbnail" /></a>

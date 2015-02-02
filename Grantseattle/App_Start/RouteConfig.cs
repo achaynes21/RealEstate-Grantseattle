@@ -66,6 +66,12 @@ namespace InventoryERP
             url: "AddTo-Favourite",
             defaults: new { controller = "Client", action = "AddToFavourite" }
         );
+            routes.MapRoute(
+            name: "ContactUsPost",
+            url: "ContactUs-Post",
+            defaults: new { controller = "Client", action = "ContactUsPost" }
+        );
+            
             #endregion
 
             #region BlogPost
